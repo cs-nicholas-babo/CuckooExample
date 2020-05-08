@@ -1,9 +1,5 @@
 import UIKit
 
-protocol MoviesListViewControllerProtocol: AnyObject {
-    func set(state: MoviesListViewState)
-}
-
 final class MoviesListViewController: UIViewController {
 
     private let contentView: MoviesListView
@@ -23,7 +19,19 @@ final class MoviesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindLayoutEvents()
         presenter.getInitialMovies()
+    }
+
+    override func loadView() {
+        self.view = contentView
+    }
+
+    private func bindLayoutEvents() {
+        contentView.didTapMovieAction = { [weak self] index in
+
+            self?.presenter.didSelectMovie(at: index)
+        }
     }
 }
 

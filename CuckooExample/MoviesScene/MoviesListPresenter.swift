@@ -1,13 +1,15 @@
 import Foundation
 
-protocol MoviesListPresenterProtocol {
-    func getInitialMovies()
-}
-
 final class MoviesListPresenter: MoviesListPresenterProtocol {
 
     weak var controller: MoviesListViewControllerProtocol?
     private let requestManager: RequestManagerProtocol
+
+    private var movies: [Movie] = [] {
+        didSet {
+            self.state = .ready(adapt(movies))
+        }
+    }
 
     private var state: MoviesListViewState = .loading {
         didSet {
@@ -26,12 +28,15 @@ final class MoviesListPresenter: MoviesListPresenterProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let movies):
-                let viewModel = self.adapt(movies)
-                self.state = .ready(viewModel)
+                self.movies = movies
             case .failure:
                 self.state = .error
             }
         }
+    }
+
+    func didSelectMovie(at index: Int) {
+        _ = movies[index]
     }
 
     private func adapt(_ movies: [Movie]) -> [MoviesListViewModel] {
@@ -41,6 +46,4 @@ final class MoviesListPresenter: MoviesListPresenterProtocol {
                                 rating: $0.rating)
         }
     }
-    
-
 }

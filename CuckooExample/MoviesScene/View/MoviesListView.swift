@@ -4,6 +4,8 @@ class MoviesListView: UIView {
 
     private lazy var stateLabel: UILabel = UILabel()
 
+    var didTapMovieAction: ((Int) -> Void)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildViewHierarchy()

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		69765EA56F0C274F5982BEB0 /* Pods_CuckooExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1E6EBB4DC363C33AB10386 /* Pods_CuckooExample.framework */; };
+		A1191C5D24650C1100347E4E /* MoviesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191C5C24650C1100347E4E /* MoviesListProtocols.swift */; };
+		A1191C6024650C4800347E4E /* NetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191C5F24650C4800347E4E /* NetworkProtocols.swift */; };
+		A1191C6524650DAA00347E4E /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191C6424650DAA00347E4E /* GeneratedMocks.swift */; };
+		A1191C6824650DD900347E4E /* MoviesListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191C6724650DD900347E4E /* MoviesListViewControllerTests.swift */; };
+		A1191C6A24650ED400347E4E /* MoviesListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191C6924650ED400347E4E /* MoviesListPresenterTests.swift */; };
 		D7F91DEA5BA49A790D2BB290 /* Pods_CuckooExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CFBE74F636C792B76708CA /* Pods_CuckooExampleTests.framework */; };
 		E38040872411F241005199A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38040862411F241005199A3 /* AppDelegate.swift */; };
 		E38040892411F241005199A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38040882411F241005199A3 /* SceneDelegate.swift */; };
@@ -38,6 +43,11 @@
 		5528D8D140C7B6D694E43F8A /* Pods-CuckooExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CuckooExample.debug.xcconfig"; path = "Target Support Files/Pods-CuckooExample/Pods-CuckooExample.debug.xcconfig"; sourceTree = "<group>"; };
 		6E1E6EBB4DC363C33AB10386 /* Pods_CuckooExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CuckooExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3D13CA5803A2396D1473B7 /* Pods-CuckooExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CuckooExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-CuckooExampleTests/Pods-CuckooExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A1191C5C24650C1100347E4E /* MoviesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListProtocols.swift; sourceTree = "<group>"; };
+		A1191C5F24650C4800347E4E /* NetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocols.swift; sourceTree = "<group>"; };
+		A1191C6424650DAA00347E4E /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedMocks.swift; path = CuckooExampleTests/GeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
+		A1191C6724650DD900347E4E /* MoviesListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewControllerTests.swift; sourceTree = "<group>"; };
+		A1191C6924650ED400347E4E /* MoviesListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListPresenterTests.swift; sourceTree = "<group>"; };
 		C1CFBE74F636C792B76708CA /* Pods_CuckooExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CuckooExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38040832411F241005199A3 /* CuckooExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuckooExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38040862411F241005199A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +95,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A1191C5E24650C3000347E4E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E38040B12411F8C3005199A3 /* RequestManager.swift */,
+				A1191C5F24650C4800347E4E /* NetworkProtocols.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A1191C6124650C5500347E4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E38040AB2411F58F005199A3 /* MoviesListViewModel.swift */,
+				E38040AF2411F65E005199A3 /* MoviesListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1191C6324650D9B00347E4E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1191C6424650DAA00347E4E /* GeneratedMocks.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A1191C6624650DCC00347E4E /* MoviesScene */ = {
+			isa = PBXGroup;
+			children = (
+				A1191C6724650DD900347E4E /* MoviesListViewControllerTests.swift */,
+				A1191C6924650ED400347E4E /* MoviesListPresenterTests.swift */,
+			);
+			path = MoviesScene;
+			sourceTree = "<group>";
+		};
 		E380407A2411F241005199A3 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +153,7 @@
 		E38040852411F241005199A3 /* CuckooExample */ = {
 			isa = PBXGroup;
 			children = (
+				A1191C5E24650C3000347E4E /* Network */,
 				E38040A82411F4F6005199A3 /* MoviesScene */,
 				E38040862411F241005199A3 /* AppDelegate.swift */,
 				E38040882411F241005199A3 /* SceneDelegate.swift */,
@@ -123,6 +169,8 @@
 		E380409F2411F43F005199A3 /* CuckooExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1191C6624650DCC00347E4E /* MoviesScene */,
+				A1191C6324650D9B00347E4E /* Resources */,
 				E38040A22411F43F005199A3 /* Info.plist */,
 			);
 			path = CuckooExampleTests;
@@ -131,11 +179,10 @@
 		E38040A82411F4F6005199A3 /* MoviesScene */ = {
 			isa = PBXGroup;
 			children = (
+				A1191C6124650C5500347E4E /* View */,
 				E38040A92411F54C005199A3 /* MoviesListPresenter.swift */,
-				E38040AB2411F58F005199A3 /* MoviesListViewModel.swift */,
 				E38040AD2411F601005199A3 /* MoviesListViewController.swift */,
-				E38040AF2411F65E005199A3 /* MoviesListView.swift */,
-				E38040B12411F8C3005199A3 /* RequestManager.swift */,
+				A1191C5C24650C1100347E4E /* MoviesListProtocols.swift */,
 			);
 			path = MoviesScene;
 			sourceTree = "<group>";
@@ -177,6 +224,7 @@
 			buildConfigurationList = E38040A52411F43F005199A3 /* Build configuration list for PBXNativeTarget "CuckooExampleTests" */;
 			buildPhases = (
 				C12F41B8DD9F12E81B9E5C1E /* [CP] Check Pods Manifest.lock */,
+				A1191C6224650D2100347E4E /* Generate Mocks */,
 				E380409A2411F43F005199A3 /* Sources */,
 				E380409B2411F43F005199A3 /* Frameworks */,
 				E380409C2411F43F005199A3 /* Resources */,
@@ -207,6 +255,7 @@
 					};
 					E380409D2411F43F005199A3 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1110;
 						TestTargetID = E38040822411F241005199A3;
 					};
 				};
@@ -290,6 +339,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A1191C6224650D2100347E4E /* Generate Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Mocks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/MoviesScene/MoviesListProtocols.swift\" \\\n\"${INPUT_DIR}/MoviesScene/View/MoviesListView.swift\" \\\n\"${INPUT_DIR}/Network/NetworkProtocols.swift\"\n\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+		};
 		C12F41B8DD9F12E81B9E5C1E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,10 +390,12 @@
 				E38040B02411F65E005199A3 /* MoviesListView.swift in Sources */,
 				E380408B2411F241005199A3 /* ViewController.swift in Sources */,
 				E38040B22411F8C3005199A3 /* RequestManager.swift in Sources */,
+				A1191C6024650C4800347E4E /* NetworkProtocols.swift in Sources */,
 				E38040872411F241005199A3 /* AppDelegate.swift in Sources */,
 				E38040892411F241005199A3 /* SceneDelegate.swift in Sources */,
 				E38040AA2411F54C005199A3 /* MoviesListPresenter.swift in Sources */,
 				E38040AE2411F601005199A3 /* MoviesListViewController.swift in Sources */,
+				A1191C5D24650C1100347E4E /* MoviesListProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +403,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1191C6A24650ED400347E4E /* MoviesListPresenterTests.swift in Sources */,
+				A1191C6524650DAA00347E4E /* GeneratedMocks.swift in Sources */,
+				A1191C6824650DD900347E4E /* MoviesListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +596,7 @@
 			baseConfigurationReference = 8D3D13CA5803A2396D1473B7 /* Pods-CuckooExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98H8AFME2H;
 				INFOPLIST_FILE = CuckooExampleTests/Info.plist;
@@ -534,6 +607,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.babo.nick.CuckooExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CuckooExample.app/CuckooExample";
@@ -545,6 +619,7 @@
 			baseConfigurationReference = 0127845F5768402A62625252 /* Pods-CuckooExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98H8AFME2H;
 				INFOPLIST_FILE = CuckooExampleTests/Info.plist;
