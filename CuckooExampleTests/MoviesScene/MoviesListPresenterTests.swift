@@ -20,7 +20,7 @@ final class MoviesListPresenterTests: QuickSpec {
             sut.controller = viewControllerMock
 
             stubViewController()
-            stubRequestManager(with: .success([]))
+            stubRequestManager(with: .success([Movie()]))
         }
 
         describe("#getInitialMovies") {
@@ -38,22 +38,29 @@ final class MoviesListPresenterTests: QuickSpec {
             }
 
             context("on request success") {
-                it("calls show on viewController 2 times (loading, success)") {
-                    stubRequestManager(with: .success([]))
+                beforeEach {
                     sut.getInitialMovies()
+                }
+
+                it("calls show on viewController 2 times (loading, success)") {
+                    let expectedViewModel = MoviesListViewModel(posterURL: "",
+                                                                title: "Parasite",
+                                                                rating: 10.0)
 
                     verify(viewControllerMock, times(2)).set(state: argumentCaptor.capture())
 
                     expect(argumentCaptor.allValues.first).to(equal(.loading))
-                    expect(argumentCaptor.allValues[1]).to(equal(.ready([])))
+                    expect(argumentCaptor.allValues[1]).to(equal(.ready(expectedViewModel)))
                 }
             }
 
             context("on request failure") {
-                it("calls show on viewController 2 times (loading, error)") {
+                beforeEach {
                     stubRequestManager(with: .failure(NSError()))
                     sut.getInitialMovies()
+                }
 
+                it("calls show on viewController 2 times (loading, error)") {
                     verify(viewControllerMock, times(2)).set(state: argumentCaptor.capture())
 
                     expect(argumentCaptor.allValues.first).to(equal(.loading))
@@ -68,10 +75,10 @@ final class MoviesListPresenterTests: QuickSpec {
             }
         }
 
-        func stubRequestManager(with mockedCompletion: Result<[Movie], Error>) {
+        func stubRequestManager(with mockedResult: Result<[Movie], Error>) {
             stub(requestManagerMock) { mock in
                 when(mock).request(any(), completion: any()).then { _, completion in
-                    completion(mockedCompletion)
+                    completion(mockedResult)
                 }
             }
         }

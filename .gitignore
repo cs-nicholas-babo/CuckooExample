@@ -89,3 +89,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 *.DS_Store
+
+##Remove Cuckoo's GeneratedMocks.swift
+**/GeneratedMocks.swift

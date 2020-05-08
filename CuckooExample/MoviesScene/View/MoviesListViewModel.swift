@@ -1,5 +1,5 @@
 enum MoviesListViewState: Equatable {
-    case ready([MoviesListViewModel])
+    case ready(MoviesListViewModel)
     case loading
     case error
 }

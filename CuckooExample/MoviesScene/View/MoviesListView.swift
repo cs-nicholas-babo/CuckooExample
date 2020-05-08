@@ -2,7 +2,9 @@ import UIKit
 
 class MoviesListView: UIView {
 
-    private lazy var stateLabel: UILabel = UILabel()
+    private lazy var titleLabel: UILabel = UILabel()
+    private lazy var posterImageView: UIImageView = UIImageView()
+    private lazy var ratingsView: UIView = UIView()
 
     var didTapMovieAction: ((Int) -> Void)?
 
@@ -18,29 +20,40 @@ class MoviesListView: UIView {
     }
 
     private func buildViewHierarchy() {
-        addSubview(stateLabel)
+        addSubview(titleLabel)
     }
 
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            stateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stateLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            stateLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stateLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
-    func show(_ viewModel: [MoviesListViewModel]) {
-        let movieTitle = viewModel.first?.title ?? "nil title?"
-        stateLabel.text = "READY: Movie - \(movieTitle)"
+    func show(_ viewModel: MoviesListViewModel) {
+        titleLabel.text = viewModel.title
+        posterImageView.image = downloadImage(from: viewModel.posterURL)
+        ratingsView.setRating(viewModel.rating)
     }
 
     func setLoading(_ loading: Bool) {
         let loadingText = loading ? "Loading ..." : "Loading ended"
-        stateLabel.text = loadingText
+        titleLabel.text = loadingText
     }
 
     func showError() {
-        stateLabel.text = "Error!"
+        titleLabel.text = "Error!"
+    }
+
+    private func downloadImage(from url: String) -> UIImage? {
+        nil
+    }
+}
+
+extension UIView {
+    func setRating(_ rating: Float) {
+
     }
 }

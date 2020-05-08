@@ -10,7 +10,8 @@ target 'CuckooExample' do
 	target 'CuckooExampleTests' do
 	  inherit! :search_paths
 		pod 'Quick'
-    pod 'Nimble'
+    		pod 'Nimble'
+		pod 'Nimble-Snapshots'
 		pod 'Cuckoo'
 	end
 

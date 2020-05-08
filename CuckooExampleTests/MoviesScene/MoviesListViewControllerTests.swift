@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import Nimble_Snapshots
 import Cuckoo
 
 @testable import CuckooExample
@@ -21,21 +22,35 @@ final class MoviesListViewControllerTests: QuickSpec {
         }
 
         describe("#viewDidLoad") {
-            it("calls getInitialMovies on presenter") {
-                sut.viewDidLoad()
+            var argumentCaptor: ArgumentCaptor<Int>!
 
+            beforeEach {
+                argumentCaptor = ArgumentCaptor<Int>()
+                sut.viewDidLoad()
+            }
+
+            it("calls getInitialMovies on presenter") {
                 verify(presenterMock).getInitialMovies()
             }
 
             context("bindLayoutEvents") {
                 it("binds view's didTapMovieAction to presenter didSelectMovie") {
-                    let argumentCaptor = ArgumentCaptor<Int>()
-
                     contentViewMock.didTapMovieAction?(10)
 
                     verify(presenterMock).didSelectMovie(at: argumentCaptor.capture())
 
                     expect(argumentCaptor.value).to(equal(10))
+                }
+            }
+        }
+
+        describe("#set") {
+            context("ready state") {
+                it("calls show on contentView") {
+                    let viewModel = createViewModels()
+                    sut.set(state: .ready(viewModel))
+
+                    verify(contentViewMock).show(equal(to: viewModel))
                 }
             }
         }
@@ -49,9 +64,16 @@ final class MoviesListViewControllerTests: QuickSpec {
 
         func stubContentView() {
             stub(contentViewMock) { mock in
+                when(mock).show(any()).thenDoNothing()
+                when(mock).showError().thenDoNothing()
+                when(mock).setLoading(any()).thenDoNothing()
                 when(mock).didTapMovieAction.get.thenCallRealImplementation()
                 when(mock).didTapMovieAction.set(any()).thenCallRealImplementation()
             }
+        }
+
+        func createViewModels() -> MoviesListViewModel {
+            return MoviesListViewModel(posterURL: "", title: "", rating: 5)
         }
     }
 }

@@ -28,7 +28,8 @@ final class MoviesListPresenter: MoviesListPresenterProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let movies):
-                self.movies = movies
+                let viewModels = self.adapt(movies)
+                self.state = .ready(viewModels)
             case .failure:
                 self.state = .error
             }
@@ -39,11 +40,11 @@ final class MoviesListPresenter: MoviesListPresenterProtocol {
         _ = movies[index]
     }
 
-    private func adapt(_ movies: [Movie]) -> [MoviesListViewModel] {
+    private func adapt(_ movies: [Movie]) -> MoviesListViewModel {
         return movies.map {
             MoviesListViewModel(posterURL: $0.posterURL,
                                 title: $0.title,
                                 rating: $0.rating)
-        }
+        }.first!
     }
 }
